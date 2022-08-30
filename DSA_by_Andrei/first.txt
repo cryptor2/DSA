@@ -1,0 +1,43 @@
+
+Asymptotic notation:-
+    * O(n) is linear time. The number of inputs inceases the number of output increase propotionaly.
+    * O(1) is constant time. Number of operations are constant. If the number of inputs increased or decreased the number of operations are still same.
+    * O(n^2) is quadratic time. when we put nested loop it will multiply and this creates o(n^2).
+    *O (n!) is factorial time and its very bad. 
+        https://www.bigocheatsheet.com/
+    Rule book:-
+        1. Worst case:- Always check complexity for worst case.
+        2. Remove constants:- Remove constants form calculated bigO. Add the all the bigO except nested loops.
+        3. Different terms for input:- if there are two loops iterating over arr1 and arr2. The time complexity is not o(n)
+            for this bcz the arr1 may be 1000 in size and arr2 maybe 1 in size. So the time complexity will be additon of both the arrays.
+            ex arr1 -> O(n)
+               arr2 -> O(m)
+               the time complexity will be o(n) + o(m) => O(n+m)
+            
+            - If any loop is nested. then its multiplies with the upper part for two Different terms of input.
+            - for the same term it will be n*n = n^2.
+
+            -- + for steps in order
+            -- * for nested 
+        4.Drop non-dominant:- only care about most dominant terms that affects the result most. 
+            ex:- if there is O(n + n^2) in this seneatio we ignore the n and only care about the o^2. And our final result will be O(n^2).
+
+Time Complexity:-
+/
+
+
+
+
+/
+
+How to solve coding problems:-
+
+
+
+
+
+Arrays:- 
+
+
+
+
