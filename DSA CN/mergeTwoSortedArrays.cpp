@@ -34,12 +34,14 @@ void mergeTwoSortedArrays(int arr1[], int arr2[], int result[], int size1, int s
 
 }
 
+
+
 int main(){
     int arr1[] = {1,3,5};
-    int arr2[] = {0,2,2};
-    int result[5] = {0};
-    mergeTwoSortedArrays(arr1, arr2, result,3,3,6);
-    for(int i =0; i < 6; i++){
+    int arr2[] = {0,2,2,7};
+    int result[7] = {0};
+    mergeTwoSortedArrays(arr1, arr2, result,3,4,7);
+    for(int i =0; i < 7; i++){
         cout << result[i] << " ";
     }
 
