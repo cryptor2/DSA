@@ -19,7 +19,7 @@ int partition(int arr[], int si,  int ei){
     while(i < c && j > c){
         if(arr[i] < pivet){
             i++;
-        }else if(arr[j] > pivet){
+        }else if(arr[j] >= pivet){
             j++;
         }else{
             int temp = arr[i];
@@ -42,7 +42,7 @@ void quickSort(int arr[], int si, int ei){
     quickSort(arr, c+1, ei);
 }
 int main(){
-    int arr[] = {10,3,12,14,6,2};
+    int arr[] = {10,10,3,12,14,6,2};
     quickSort(arr, 0, 5);
     for(int i =0; i <=5 ; i++){
         cout << arr[i] << " ";
