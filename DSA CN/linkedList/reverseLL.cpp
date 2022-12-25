@@ -24,40 +24,53 @@
 // better approach
 //  tn o(n)
 
-class Pair
-{
-public:
-    Node *head;
-    Node *tail;
-};
+// class Pair
+// {
+// public:
+//     Node *head;
+//     Node *tail;
+// };
 
-Pair reverseLL(Node *head)
+// Pair reverseLL(Node *head)
+// {
+//     if (head == NULL || head->next == NULL)
+//     {
+//         Pair ans;
+//         ans.head = head;
+//         ans.tail = head;
+//         return ans;
+//     }
+//     Pair smallOut = reverseLL(head->next);
+//     smallOut.tail->next = head;
+//     head->next = NULL;
+//     Pair ans;
+//     ans.head = smallOut.head;
+//     ans.tail = head;
+//     return ans;
+// }
+
+// Node *reverseLLRun(Node *head)
+// {
+//     Pair ans = reverseLL(head);
+//     return ans.head;
+// }
+
+Node *betterReverse(Node *head)
 {
     if (head == NULL || head->next == NULL)
     {
-        Pair ans;
-        ans.head = head;
-        ans.tail = head;
-        return ans;
+        return head;
     }
-    Pair smallOut = reverseLL(head->next);
-    smallOut.tail->next = head;
+    Node *smallOut = betterReverse(head->next);
+    Node *tail = head->next;
+    tail->next = head;
     head->next = NULL;
-    Pair ans;
-    ans.head = smallOut.head;
-    ans.tail = head;
-    return ans;
-}
-
-Node *reverseLLRun(Node *head)
-{
-    Pair ans = reverseLL(head);
-    return ans.head;
+    return smallOut;
 }
 int main()
 {
     Node *head = takeInput_Better();
     // print(head);
-    Node *temp = reverseLLRun(head);
+    Node *temp = betterReverse(head);
     print(temp);
 }
