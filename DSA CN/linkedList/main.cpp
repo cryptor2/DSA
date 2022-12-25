@@ -115,11 +115,11 @@ int printINode(Node *head, int i)
     }
 }
 
-int main()
-{
-    Node *head = takeInput_Better();
-    print(head);
-    int i = 1;
-    head = insertNode(head, i, 99);
-    print(head);
-}
+// int main()
+// {
+//     Node *head = takeInput_Better();
+//     print(head);
+//     int i = 1;
+//     head = insertNode(head, i, 99);
+//     print(head);
+// }
