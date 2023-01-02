@@ -70,7 +70,7 @@ bool checkPalindrome(Node *head)
     {
         Node *temp = head;
         Node *slow = head;
-        Node *fast = head;
+        Node *fast = head->next;
         while (fast != NULL && fast->next != NULL)
         {
             slow = slow->next;
