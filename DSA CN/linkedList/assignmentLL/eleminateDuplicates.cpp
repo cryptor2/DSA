@@ -111,7 +111,9 @@ void eliminateDuplicates(Node *head)
             if (temp->data == cmp->data)
             {
                 temp->next = cmp->next;
+                temp = cmp;
                 cmp = cmp->next;
+                delete cmp;
             }
             else
             {
