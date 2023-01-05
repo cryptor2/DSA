@@ -90,11 +90,60 @@ Node *mergeTwoArrays(Node *head1, Node *head2)
     }
 }
 
+Node *mergeTwoLists(Node *list1, Node *list2)
+{
+    Node *head = NULL;
+    Node *tail = NULL;
+    Node *l1 = list1;
+    Node *l2 = list2;
+
+    while (l1 != NULL && l2 != NULL)
+    {
+        if (l1->data < l2->data)
+        {
+            if (head == NULL)
+            {
+                head = l1;
+                tail = l1;
+            }
+            else
+            {
+                tail->next = l1;
+                tail = tail->next;
+            }
+            l1 = l1->next;
+        }
+        else if (l1->data > l2->data)
+        {
+            if (head == NULL)
+            {
+                head = l2;
+                tail = l2;
+            }
+            else
+            {
+                tail->next = l2;
+                tail = tail->next;
+            }
+            l2 = l2->next;
+        }
+    }
+    if (l1 == NULL && l2 != NULL)
+    {
+        tail->next = l2;
+    }
+    else if (l1 != NULL && l2 == NULL)
+    {
+        tail->next = l1;
+    }
+    return head;
+    ;
+}
 int main()
 {
     Node *head = takeInput_Better();
     Node *head2 = takeInput_Better();
 
-    Node *finalhead = mergeTwoArrays(head, head2);
+    Node *finalhead = mergeTwoLists(head, head2);
     print(finalhead);
 }
