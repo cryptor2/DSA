@@ -1,9 +1,9 @@
 #include <iostream>
-#include "dynamicStack.h"
+#include "dynamicStackTemp.h"
 using namespace std;
 int main()
 {
-    StackUsingArray v;
+    StackUsingArray<int> v;
     v.push(10);
     cout << v.top();
 }
