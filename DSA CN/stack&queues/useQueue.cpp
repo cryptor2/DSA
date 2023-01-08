@@ -1,11 +1,11 @@
 #include <iostream>
-#include "dynamicQueue.h"
+#include "queueUsingLL.h"
 
 using namespace std;
 int main()
 {
 
-    Queue<int> q(3);
+    Queue<int> q;
 
     q.enqueue(10);
     q.enqueue(20);
