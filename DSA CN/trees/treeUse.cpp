@@ -31,8 +31,41 @@ TreeNode<int> *takeInputLevelWise()
     return root;
 }
 
+void depthOfKnode(TreeNode<int> *root, int k)
+{
+    if (k == 1)
+    {
+        for (int i = 0; i < root->children.size(); i++)
+        {
+            cout << root->children[i]->data << " ";
+        }
+    }
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        depthOfKnode(root->children[i], k - 1);
+    }
+}
+int heightOfTree(TreeNode<int> *root)
+{
+    if (root == NULL)
+    {
+        return -1;
+    }
+    int ht = -1;
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        int a;
+        a = heightOfTree(root->children[i]);
+        if (a > ht)
+            ht = a;
+    }
+    return ht + 1;
+}
+
 int maxDataNode(TreeNode<int> *root)
 {
+    if (root == NULL)
+        return 0;
     int ans;
     for (int i = 0; i < root->children.size(); i++)
     {
@@ -46,6 +79,8 @@ int maxDataNode(TreeNode<int> *root)
 
 int sumOfNodes(TreeNode<int> *root)
 {
+    if (root == NULL)
+        return 0;
     int ans = 0;
     for (int i = 0; i < root->children.size(); i++)
     {
@@ -56,6 +91,8 @@ int sumOfNodes(TreeNode<int> *root)
 
 int countNodes(TreeNode<int> *root)
 {
+    if (root == NULL)
+        return 0;
     int ans = 1;
     for (int i = 0; i < root->children.size(); i++)
     {
@@ -101,10 +138,30 @@ void printTree(TreeNode<int> *root)
     }
 }
 
+void preorder(TreeNode<int> *root)
+{
+    cout << root->data << " ";
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        preorder(root->children[i]);
+    }
+}
+
+void postorder(TreeNode<int> *root)
+{
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        postorder(root->children[i]);
+    }
+    cout << root->data;
+}
+
 int main()
 {
     TreeNode<int> *root = takeInputLevelWise();
     // printTree(root);
     // cout << countNodes(root);
-    cout << maxDataNode(root);
+    // cout << maxDataNode(root) << endl;
+    // cout << heightOfTree(root) << endl;
+    depthOfKnode(root, 2);
 }
