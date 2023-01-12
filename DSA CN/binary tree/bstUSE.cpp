@@ -112,6 +112,29 @@ void printLevelWise(BinaryTreeNode<int> *root)
     }
 }
 
+void preorder(BinaryTreeNode<int> *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(BinaryTreeNode<int> *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+
 void inorder(BinaryTreeNode<int> *root)
 {
     if (root == NULL)
@@ -134,7 +157,9 @@ int main()
     // cin >> x;
     // cout << "x is present " << findNodeX(root, x);
     // cout << heightOfTree(root);
-    mirror(root);
-    printLevelWise(root);
+    // mirror(root);
+    // printLevelWise(root);
+    // preorder(root);
+    postorder(root);
     delete root;
 }
