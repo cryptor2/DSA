@@ -40,6 +40,7 @@ BinaryTreeNode<int> *takeInputBetter()
     return root;
 }
 
+
 void mirror(BinaryTreeNode<int> *root)
 {
     if (root == NULL)
@@ -146,20 +147,20 @@ void inorder(BinaryTreeNode<int> *root)
     inorder(root->right);
 }
 // 1 2 3 4 5 6 7 -1 -1 -1 -1 8 9 -1 -1 -1 -1 -1 -1
-int main()
-{
-    BinaryTreeNode<int> *root = takeInputBetter();
-    // inorder(root);
-    // printLevelWise(root);
-    // cout << "No of nodes are: " << countNode(root);
-    // int x;
-    // cout << "Enter the value of X" << endl;
-    // cin >> x;
-    // cout << "x is present " << findNodeX(root, x);
-    // cout << heightOfTree(root);
-    // mirror(root);
-    // printLevelWise(root);
-    // preorder(root);
-    postorder(root);
-    delete root;
-}
+// int main()
+// {
+//     BinaryTreeNode<int> *root = takeInputBetter();
+//     // inorder(root);
+//     // printLevelWise(root);
+//     // cout << "No of nodes are: " << countNode(root);
+//     // int x;
+//     // cout << "Enter the value of X" << endl;
+//     // cin >> x;
+//     // cout << "x is present " << findNodeX(root, x);
+//     // cout << heightOfTree(root);
+//     // mirror(root);
+//     // printLevelWise(root);
+//     // preorder(root);
+//     postorder(root);
+//     delete root;
+// }
