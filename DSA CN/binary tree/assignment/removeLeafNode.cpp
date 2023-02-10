@@ -69,7 +69,16 @@ BinaryTreeNode<int> *takeInputBetter()
     return root;
 }
 
-
+BinaryTreeNode<int> *removeLeafNode(BinaryTreeNode<int> * root){
+    if(root == NULL)
+        return NULL;
+    if(root -> left == NULL && root ->right == NULL){
+        return NULL;
+    }
+    root->left = removeLeafNode(root->left);
+    root->right = removeLeafNode(root->right);
+    return root;
+}
 
  int main(){
     BinaryTreeNode<int> *root = takeInputBetter();
