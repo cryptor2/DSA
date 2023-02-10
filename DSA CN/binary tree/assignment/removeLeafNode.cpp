@@ -2,6 +2,36 @@
 #include "../treeNode.h"
 #include <queue>
 using namespace std;
+
+void levelOrderTraversal(BinaryTreeNode<int> *root){
+    if(root == NULL)
+    return;
+
+    queue<BinaryTreeNode<int> *> pendingNodes;
+    cout << root->data << " " << endl ;
+    pendingNodes.push(root);
+    BinaryTreeNode<int> *nl = root;
+    while (!pendingNodes.empty())
+    {
+    BinaryTreeNode<int> *front = pendingNodes.front();
+    pendingNodes.pop();
+    
+    if (front->left != NULL)
+    {
+            cout << front->left->data << " ";
+            pendingNodes.push(front->left);
+            
+        }
+    if(front->right != NULL){
+            cout << front->right->data << " " ;
+            pendingNodes.push(front->right);
+    }
+    if(nl == front){
+            nl = pendingNodes.back();
+            cout << endl;
+    }
+    }
+} 
 BinaryTreeNode<int> *takeInputBetter()
 {
     int rootData;
@@ -39,37 +69,10 @@ BinaryTreeNode<int> *takeInputBetter()
     return root;
 }
 
-void levelOrderTraversal(BinaryTreeNode<int> *root){
-    if(root == NULL)
-    return;
 
-    queue<BinaryTreeNode<int> *> pendingNodes;
-    cout << root->data << " " << endl ;
-    pendingNodes.push(root);
-    BinaryTreeNode<int> *nl = root;
-    while (!pendingNodes.empty())
-    {
-    BinaryTreeNode<int> *front = pendingNodes.front();
-    pendingNodes.pop();
-    
-    if (front->left != NULL)
-    {
-            cout << front->left->data << " ";
-            pendingNodes.push(front->left);
-            
-        }
-    if(front->right != NULL){
-            cout << front->right->data << " " ;
-            pendingNodes.push(front->right);
-    }
-    if(nl == front){
-            nl = pendingNodes.back();
-            cout << endl;
-    }
-    }
-} 
 
-int main(){
+ int main(){
     BinaryTreeNode<int> *root = takeInputBetter();
+    root = removeLeafNode(root);
     levelOrderTraversal(root);
-}
+ }
