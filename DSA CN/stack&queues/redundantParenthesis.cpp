@@ -34,7 +34,7 @@ bool redundantParenthesis(string s)
 }
 int main()
 {
-    string s;
-    cin >> s;
+    string s = "(x+y*(a-b))";
+    // cin >> s;
     cout << redundantParenthesis(s);
 }
