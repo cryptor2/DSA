@@ -73,6 +73,7 @@ BinaryTreeNode<int> *removeLeafNode(BinaryTreeNode<int> * root){
     if(root == NULL)
         return NULL;
     if(root -> left == NULL && root ->right == NULL){
+        delete root;
         return NULL;
     }
     root->left = removeLeafNode(root->left);
