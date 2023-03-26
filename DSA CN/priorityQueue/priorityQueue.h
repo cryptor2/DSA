@@ -1,5 +1,4 @@
 #include <vector>
-using namespace std;
 
 class PriorityQueue
 {
@@ -28,7 +27,7 @@ public:
     void insert(int element)
     {
         pq.push_back(element);
-        int childIndex = pq.size();
+        int childIndex = pq.size()-1;
 
         while (childIndex > 0)
         {
@@ -38,8 +37,10 @@ public:
                 int temp = pq[childIndex];
                 pq[childIndex] = pq[parentIndex];
                 pq[parentIndex] = temp;
-                childIndex = parentIndex;
-            }
+                
+            }else
+                break;
+            childIndex = parentIndex;
         }
     }
 
@@ -82,5 +83,6 @@ public:
             childIndexL = 2 * (pi) + 1;
             childIndexR = 2 * (pi) + 2;
         }
+        return ans;
     }
 };
