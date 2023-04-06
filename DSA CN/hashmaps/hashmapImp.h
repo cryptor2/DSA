@@ -87,7 +87,7 @@ private:
     {
         hashNode<T> **oldBucket = bucket;
         hashNode<T> **bucket = new hashNode<T> *[2 * bucketSize];
-        for (int i = 0; i < 2 * bucket; i++)
+        for (int i = 0; i < 2 * bucketSize; i++)
             bucket[i] = NULL;
 
         int oldBucketCount = bucketSize;
