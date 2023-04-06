@@ -83,6 +83,31 @@ private:
 
         return hash % bucketSize;
     }
+    void rehash()
+    {
+        hashNode<T> **oldBucket = bucket;
+        hashNode<T> **bucket = new hashNode<T> *[2 * bucketSize];
+        for (int i = 0; i < 2 * bucket; i++)
+            bucket[i] = NULL;
+
+        int oldBucketCount = bucketSize;
+        bucketSize *= 2;
+        count = 0;
+
+        for (int i = 0; i < oldBucketCount; i++)
+        {
+            hashNode<V> *head = oldBucket[i];
+            while (head != NULL)
+            {
+                insert(head->key, head->value);
+                head = head->next;
+            }
+        }
+
+        for (int i = 0; i < oldBucketCount; i++)
+            delete oldBucket[i];
+        delete[] oldBucket;
+    }
 
 public:
     void insert(string key, T value)
@@ -103,6 +128,10 @@ public:
         bucket[index] = newNode;
         newNode->next = head;
         count++;
+
+        double loadFactor = (1.0 * count) / bucketSize;
+        if (loadFactor >= 0.7)
+            rehash();
     }
 
     T remove(string key)
