@@ -1,0 +1,26 @@
+body {
+  background-color: antiquewhite;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: medium;
+  text-align: center;
+}
+
+.feedB {
+  margin-left: 25%;
+  margin-right: 25%;
+  border: 1px solid;
+  padding: 10px 10px 10px 10px;
+}
+
+form {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+input textarea {
+  text-align: center;
+}
+button {
+  width: 100%;
+}
